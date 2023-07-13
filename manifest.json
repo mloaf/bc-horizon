@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "BC Extension",
+    "version": "1.0.0",
+    "action": { 
+        "default_popup": "index.html" 
+    },
+    "content_scripts": [
+        {
+            "js": ["./src/content.js"],
+            "matches": [
+                "https://www.google.com/*",
+                "https://qcbctest.zalopay.vn/*"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "./src/bg.js"
+    },
+    "permissions": [
+        "tabs", 
+        "storage", 
+        "activeTab", 
+        "alarms", 
+        "scripting",
+        "webRequest"
+    ],
+    "host_permissions": [
+        "https://qcbctest.zalopay.vn/*",
+        "https://google.com/*"
+    ]
+  }
